@@ -14,18 +14,24 @@ impl<T: Copy + PartialEq> Matrix<T> {
             shape,
         }
     }
+
+    pub fn is_compatible(self, other: Self) -> bool {
+        self.shape == other.shape
+    }
 }
 
-impl<T: Add<Output = Matrix<T>>> Add for Matrix<T> {
+impl<T: Copy + PartialEq> Add for Matrix<T> where T: Add<Output = Matrix<T>> {
     type Output = Self;
 
-    fn add(self, other: Self) -> Self::Output {
-        
-        Self {
-            for i in 0..self.shape.0 {
-                for j in 0..self.shape.1 {
-
-                }
-        }
+    fn add(self, other: Self) -> Matrix<T> {
+        // let data = vec![vec![0; self.shape.1]; self.shape.0];
+        //
+        // for i in 0..self.shape.0 {
+        //     for j in 0..self.shape.1 {
+        //         data 
+        //     }
+        // }
+        // Matrix{data, shape}
+        self
     }
 }
